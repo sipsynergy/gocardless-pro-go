@@ -17,6 +17,10 @@ type RedirectFlow struct {
 	Links              []MandateLink `json:"links,omitempty"`
 }
 
+type RedirectFlowResponse struct {
+	RedirectFlows RedirectFlow `json:"redirect_flows"`
+}
+
 type RedirectFlowCreateRequest struct {
 	PrefilledCustomer  PrefilledCustomer `json:"prefilled_customer,omitempty"`
 	Description        string            `json:"description,omitempty"`
@@ -28,7 +32,7 @@ type RedirectFlowCreateRequest struct {
 }
 
 type RedirectFlowCompleteRequest struct {
-	SessionToken	string	`json:"session_token"`
+	SessionToken string `json:"session_token"`
 }
 
 type PrefilledCustomer struct {
@@ -53,7 +57,7 @@ type PrefilledCustomer struct {
 
 func (s *RedirectFlowService) Create(redirectFlow *RedirectFlowCreateRequest) (*RedirectFlow, error) {
 	u := fmt.Sprintf("/redirect_flows")
-	rFlow := &RedirectFlow{}
+	rFlow := &RedirectFlowResponse{}
 	rFlowMap := map[string]interface{}{
 		"redirect_flows": redirectFlow,
 	}
