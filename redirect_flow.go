@@ -55,7 +55,7 @@ type PrefilledCustomer struct {
 	Metadata              map[string]string `json:"metadata,omitempty"`
 }
 
-func (s *RedirectFlowService) Create(redirectFlow *RedirectFlowCreateRequest) (*RedirectFlow, error) {
+func (s *RedirectFlowService) Create(redirectFlow *RedirectFlowCreateRequest) (*RedirectFlowResponse, error) {
 	u := fmt.Sprintf("/redirect_flows")
 	rFlow := &RedirectFlowResponse{}
 	rFlowMap := map[string]interface{}{
